@@ -36,15 +36,15 @@ flutter:
   #   - images/a_dot_ham.jpeg
 
 
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: AbyssinicaSIL
+      fonts:
+        - asset: assets/fonts/AbyssinicaSIL-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
+    - family: Addis
+      fonts:
+        - asset: assets/fonts/addis.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
