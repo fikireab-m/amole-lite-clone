@@ -9,7 +9,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  String languageLabel = 'English';
+  String languageLabel = 'Language';
   @override
   Widget build(BuildContext context) {
     final sc = MediaQuery.of(context).size;
@@ -74,105 +74,52 @@ class _LoginPageState extends State<LoginPage> {
                             bottomRight: Radius.circular(24.0),
                           )),
                           surfaceTintColor: const Color(0xFFFFFFFF),
-                          itemBuilder: (context) => [
-                            PopupMenuItem(
-                              value: 'English',
-                              child: ListTile(
-                                title: const Expanded(child: Text('English')),
-                                trailing: Container(
-                                  width: 24.0,
-                                  height: 24.0,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    border:
-                                        Border.all(color: Colors.blue.shade900),
-                                  ),
-                                  child: Center(
-                                    child: Container(
-                                      width: 16.0,
-                                      height: 16.0,
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: Colors.blue.shade900),
+                          itemBuilder: (context) => languages
+                              .map((language) => PopupMenuItem(
+                                    value: language['lable'],
+                                    child: SizedBox(
+                                      width: 180.0,
+                                      child: Column(
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text(language['name']!),
+                                              if (languageLabel ==
+                                                  language['lable'])
+                                                Container(
+                                                  width: 16.0,
+                                                  height: 16.0,
+                                                  decoration: BoxDecoration(
+                                                    shape: BoxShape.circle,
+                                                    border: Border.all(
+                                                        color: Colors
+                                                            .blue.shade900),
+                                                  ),
+                                                  child: Center(
+                                                    child: Container(
+                                                      width: 8.0,
+                                                      height: 8.0,
+                                                      decoration: BoxDecoration(
+                                                          shape:
+                                                              BoxShape.circle,
+                                                          color: Colors
+                                                              .blue.shade900),
+                                                    ),
+                                                  ),
+                                                ),
+                                            ],
+                                          ),
+                                          if (language['name'] !=
+                                              languages[languages.length - 1]
+                                                  ['name'])
+                                            const Divider(),
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            PopupMenuItem(
-                              value: 'ቋንቋ',
-                              child: ListTile(
-                                title: const Expanded(child: Text('አማርኛ')),
-                                trailing: Container(
-                                  width: 24.0,
-                                  height: 24.0,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    border:
-                                        Border.all(color: Colors.blue.shade900),
-                                  ),
-                                  child: Center(
-                                    child: Container(
-                                      width: 16.0,
-                                      height: 16.0,
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: Colors.blue.shade900),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            PopupMenuItem(
-                              value: 'Qooqa',
-                              child: ListTile(
-                                title:
-                                    const Expanded(child: Text('Afaan Oromo')),
-                                trailing: Container(
-                                  width: 24.0,
-                                  height: 24.0,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    border:
-                                        Border.all(color: Colors.blue.shade900),
-                                  ),
-                                  child: Center(
-                                    child: Container(
-                                      width: 16.0,
-                                      height: 16.0,
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: Colors.blue.shade900),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            PopupMenuItem(
-                              value: 'Iuuqad',
-                              child: ListTile(
-                                title: const Expanded(child: Text('Af-Somali')),
-                                trailing: Container(
-                                  width: 24.0,
-                                  height: 24.0,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    border:
-                                        Border.all(color: Colors.blue.shade900),
-                                  ),
-                                  child: Center(
-                                    child: Container(
-                                      width: 16.0,
-                                      height: 16.0,
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: Colors.blue.shade900),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
+                                  ))
+                              .toList(),
                           onSelected: (value) {
                             setState(() {
                               languageLabel = value;
@@ -190,4 +137,23 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
+
+  final languages = [
+    {
+      'name': 'English',
+      'lable': 'Language',
+    },
+    {
+      'name': 'አማርኛ',
+      'lable': 'ቋንቋ',
+    },
+    {
+      'name': 'Afaan Oromo',
+      'lable': 'Qooqa',
+    },
+    {
+      'name': 'Af-Somali',
+      'lable': 'Iuuqad',
+    }
+  ];
 }
