@@ -14,9 +14,9 @@ class _LoginPageState extends State<LoginPage> {
     final sc = MediaQuery.of(context).size;
     return Scaffold(
       body: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            height: 160.0,
             width: sc.width,
             decoration: const BoxDecoration(
               border: Border(
@@ -35,47 +35,31 @@ class _LoginPageState extends State<LoginPage> {
                     Image.asset(
                       Images.dashenBank,
                       fit: BoxFit.scaleDown,
-                      width: 120.0,
                       height: 120.0,
                     ),
+                    const SizedBox(width: 8.0),
                     Image.asset(
-                      Images.appIcon,
+                      Images.amoleLogo,
                       fit: BoxFit.scaleDown,
                       width: 120.0,
-                      height: 120.0,
                     ),
-                    const SizedBox(
-                      width: 116,
-                      child: DefaultTextStyle(
-                        style: TextStyle(color: Color(0xFF003CFF)),
-                        child: Column(
-                          children: [
-                            Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                'አሞሌ',
-                                style: TextStyle(fontSize: 48.0),
-                              ),
-                            ),
-                            Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                'AMOLE',
-                                style: TextStyle(fontSize: 18.0),
-                              ),
-                            ),
-                            Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                'Powered by DASHEN BANK',
-                                style: TextStyle(fontSize: 8.0),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    )
                   ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: DropdownButton<String>(
+                    value: 'Male',
+                    items: const [
+                      DropdownMenuItem(child: Text('Male'), value: 'Male'),
+                      DropdownMenuItem(child: Text('Female'), value: 'Female'),
+                      DropdownMenuItem(child: Text('Other'), value: 'Other'),
+                    ],
+                    onChanged: (value) {
+                      setState(() {
+                        // Update the selected value
+                      });
+                    },
+                  ),
                 )
               ],
             ),

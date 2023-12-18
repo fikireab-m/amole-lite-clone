@@ -42,9 +42,9 @@ flutter:
         - asset: assets/fonts/AbyssinicaSIL-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
-    - family: Addis
-      fonts:
-        - asset: assets/fonts/addis.ttf
+  #  - family: Addis
+  #    fonts:
+  #      - asset: assets/fonts/addis.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
