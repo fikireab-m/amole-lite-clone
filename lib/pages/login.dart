@@ -31,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 16.0),
+                  padding: const EdgeInsets.only(top: 24.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -39,20 +39,20 @@ class _LoginPageState extends State<LoginPage> {
                       Image.asset(
                         Images.dashenBank,
                         fit: BoxFit.scaleDown,
-                        height: 120.0,
+                        height: 80.0,
                       ),
                       const SizedBox(width: 8.0),
                       Image.asset(
                         Images.amoleLogo,
                         fit: BoxFit.scaleDown,
                         width: 180,
-                        height: 120,
+                        height: 80,
                       ),
                     ],
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(0.0, 0.0, 16.0, 8.0),
+                  padding: const EdgeInsets.only(right: 16.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.end,
