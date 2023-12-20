@@ -1,4 +1,5 @@
 import 'package:amole_lite/config/path.dart';
+import 'package:amole_lite/widgets/input_field.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -131,6 +132,23 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 )
               ],
+            ),
+          ),
+          const SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  InputField(kType: TextInputType.phone, lable: 'Phone'),
+                  InputField(
+                    kType: TextInputType.visiblePassword,
+                    lable: 'Password',
+                    isPassword: true,
+                  )
+                ],
+              ),
             ),
           )
         ],
