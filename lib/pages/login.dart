@@ -134,23 +134,7 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
           ),
-          const SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  InputField(kType: TextInputType.phone, lable: 'Phone'),
-                  InputField(
-                    kType: TextInputType.visiblePassword,
-                    lable: 'Password',
-                    isPassword: true,
-                  )
-                ],
-              ),
-            ),
-          )
+          const FormContainer()
         ],
       ),
     );
@@ -174,4 +158,38 @@ class _LoginPageState extends State<LoginPage> {
       'lable': 'Iuuqad',
     }
   ];
+}
+
+class FormContainer extends StatelessWidget {
+  const FormContainer({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.all(16.0),
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            InputField(
+              kType: TextInputType.text,
+              lable: 'Username',
+              hintText: 'Your username',
+            ),
+            SizedBox(height: 8.0),
+            InputField(
+              kType: TextInputType.visiblePassword,
+              lable: 'Password',
+              isPassword: true,
+              hintText: 'Your password',
+            )
+          ],
+        ),
+      ),
+    );
+  }
 }
