@@ -66,8 +66,9 @@ class _LoginPageState extends State<LoginPage> {
                         child: PopupMenuButton<String>(
                           padding: const EdgeInsets.all(4.0),
                           icon: const Icon(Icons.arrow_drop_down),
-                          offset: const Offset(-16.0, 48.0),
+                          offset: const Offset(16.0, 48.0),
                           clipBehavior: Clip.none,
+                          elevation: 16.0,
                           shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(24.0),
@@ -77,45 +78,67 @@ class _LoginPageState extends State<LoginPage> {
                           surfaceTintColor: const Color(0xFFFFFFFF),
                           itemBuilder: (context) => languages
                               .map((language) => PopupMenuItem(
+                                    padding: const EdgeInsets.all(0.0),
                                     value: language['lable'],
                                     child: SizedBox(
-                                      width: 180.0,
+                                      width: 160.0,
                                       child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.stretch,
                                         children: [
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(language['name']!),
-                                              if (languageLabel ==
-                                                  language['lable'])
-                                                Container(
-                                                  width: 16.0,
-                                                  height: 16.0,
-                                                  decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                    border: Border.all(
-                                                        color: Colors
-                                                            .blue.shade900),
-                                                  ),
-                                                  child: Center(
-                                                    child: Container(
-                                                      width: 8.0,
-                                                      height: 8.0,
-                                                      decoration: BoxDecoration(
-                                                          shape:
-                                                              BoxShape.circle,
+                                          Container(
+                                            width: double.infinity,
+                                            padding: const EdgeInsets.symmetric(
+                                              vertical: 8.0,
+                                              horizontal: 16.0,
+                                            ),
+                                            decoration: BoxDecoration(
+                                              border: (language['name'] !=
+                                                      languages[
+                                                          languages.length -
+                                                              1]['name'])
+                                                  ? const Border(
+                                                      bottom: BorderSide(
+                                                      color: Colors.grey,
+                                                    ))
+                                                  : null,
+                                            ),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(language['name']!),
+                                                if (languageLabel ==
+                                                    language['lable'])
+                                                  Container(
+                                                    width: 16.0,
+                                                    height: 16.0,
+                                                    decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                      border: Border.all(
                                                           color: Colors
                                                               .blue.shade900),
                                                     ),
+                                                    child: Center(
+                                                      child: Container(
+                                                        width: 8.0,
+                                                        height: 8.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                                shape: BoxShape
+                                                                    .circle,
+                                                                color: Colors
+                                                                    .blue
+                                                                    .shade900),
+                                                      ),
+                                                    ),
                                                   ),
-                                                ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
-                                          if (language['name'] !=
-                                              languages[languages.length - 1]
-                                                  ['name'])
-                                            const Divider(),
                                         ],
                                       ),
                                     ),
