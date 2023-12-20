@@ -1,4 +1,5 @@
 import 'package:amole_lite/config/path.dart';
+import 'package:amole_lite/widgets/common_btn.dart';
 import 'package:amole_lite/widgets/input_field.dart';
 import 'package:flutter/material.dart';
 
@@ -157,7 +158,15 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
           ),
-          const FormContainer()
+          const FormContainer(),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: ButCommon(
+              callback: () {},
+              command: 'Login',
+              color: const Color(0xFF003CFF),
+            ),
+          )
         ],
       ),
     );
@@ -191,7 +200,7 @@ class FormContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.all(16.0),
+      padding: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 8.0),
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
