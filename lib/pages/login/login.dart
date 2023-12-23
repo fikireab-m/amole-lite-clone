@@ -1,7 +1,7 @@
 import 'package:amole_lite/config/path.dart';
+import 'package:amole_lite/pages/login/widgets/btn_bar.dart';
 import 'package:amole_lite/pages/login/widgets/common_btn.dart';
 import 'package:amole_lite/pages/login/widgets/form.dart';
-import 'package:amole_lite/widgets/input_field.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -63,13 +63,26 @@ class _LoginPageState extends State<LoginPage> {
           ),
           const FormContainer(),
           Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: ButCommon(
-              callback: () {},
-              command: 'Login',
-              color: const Color(0xFF003CFF),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16.0,
+              vertical: 8.0,
             ),
-          )
+            child: Column(
+              children: [
+                TextButton(
+                  onPressed: () {},
+                  child: const Text('forget password?'),
+                ),
+                const SizedBox(height: 8.0),
+                ButCommon(
+                  callback: () {},
+                  command: 'Login',
+                  color: const Color(0xFF003CFF),
+                ),
+              ],
+            ),
+          ),
+          const LoginBtnBar(),
         ],
       ),
     );

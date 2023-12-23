@@ -27,7 +27,7 @@ class FormContainer extends StatelessWidget {
               lable: 'Password',
               isPassword: true,
               hintText: 'Your password',
-            )
+            ),
           ],
         ),
       ),

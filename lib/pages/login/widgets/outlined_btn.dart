@@ -14,7 +14,12 @@ class _BtnOutlinedState extends State<BtnOutlined> {
   Widget build(BuildContext context) {
     return OutlinedButton(
       onPressed: widget.callback,
-      child: Text(widget.command),
+      style: OutlinedButton.styleFrom(
+        foregroundColor: const Color(0xFF003CFF),
+      ),
+      child: Text(
+        widget.command,
+      ),
     );
   }
 }
