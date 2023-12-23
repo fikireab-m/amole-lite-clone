@@ -33,24 +33,27 @@ class _InputFieldState extends State<InputField> {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      obscureText: isPassword,
-      keyboardType: keyboardType,
-      decoration: InputDecoration(
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8.0),
+    return SizedBox(
+      height: 48.0,
+      child: TextFormField(
+        obscureText: isPassword,
+        keyboardType: keyboardType,
+        decoration: InputDecoration(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          labelText: lableText,
+          hintText: hint,
+          prefixIcon: isPassword
+              ? const Icon(
+                  Icons.lock_outline_rounded,
+                  color: Color(0xFF003CFF),
+                )
+              : const Icon(
+                  Icons.person_outline_rounded,
+                  color: Color(0xFF003CFF),
+                ),
         ),
-        labelText: lableText,
-        hintText: hint,
-        prefixIcon: isPassword
-            ? const Icon(
-                Icons.lock_outline_rounded,
-                color: Color(0xFF003CFF),
-              )
-            : const Icon(
-                Icons.person_outline_rounded,
-                color: Color(0xFF003CFF),
-              ),
       ),
     );
   }

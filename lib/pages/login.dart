@@ -55,105 +55,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(right: 16.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(languageLabel),
-                      Theme(
-                        data: ThemeData(
-                          splashColor: Colors.transparent,
-                        ),
-                        child: PopupMenuButton<String>(
-                          padding: const EdgeInsets.all(4.0),
-                          icon: const Icon(Icons.arrow_drop_down),
-                          offset: const Offset(16.0, 48.0),
-                          clipBehavior: Clip.none,
-                          elevation: 16.0,
-                          shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(24.0),
-                            bottomLeft: Radius.circular(24.0),
-                            bottomRight: Radius.circular(24.0),
-                          )),
-                          surfaceTintColor: const Color(0xFFFFFFFF),
-                          itemBuilder: (context) => languages
-                              .map((language) => PopupMenuItem(
-                                    padding: const EdgeInsets.all(0.0),
-                                    value: language['lable'],
-                                    child: SizedBox(
-                                      width: 160.0,
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.stretch,
-                                        children: [
-                                          Container(
-                                            width: double.infinity,
-                                            padding: const EdgeInsets.symmetric(
-                                              vertical: 8.0,
-                                              horizontal: 16.0,
-                                            ),
-                                            decoration: BoxDecoration(
-                                              border: (language['name'] !=
-                                                      languages[
-                                                          languages.length -
-                                                              1]['name'])
-                                                  ? const Border(
-                                                      bottom: BorderSide(
-                                                      color: Colors.grey,
-                                                    ))
-                                                  : null,
-                                            ),
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Text(language['name']!),
-                                                if (languageLabel ==
-                                                    language['lable'])
-                                                  Container(
-                                                    width: 16.0,
-                                                    height: 16.0,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                      border: Border.all(
-                                                          color: Colors
-                                                              .blue.shade900),
-                                                    ),
-                                                    child: Center(
-                                                      child: Container(
-                                                        width: 8.0,
-                                                        height: 8.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                                shape: BoxShape
-                                                                    .circle,
-                                                                color: Colors
-                                                                    .blue
-                                                                    .shade900),
-                                                      ),
-                                                    ),
-                                                  ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ))
-                              .toList(),
-                          onSelected: (value) {
-                            setState(() {
-                              languageLabel = value;
-                            });
-                          },
-                        ),
-                      )
-                    ],
-                  ),
+                  child: popUpMenu(),
                 )
               ],
             ),
@@ -172,24 +74,173 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  final languages = [
-    {
-      'name': 'English',
-      'lable': 'Language',
-    },
-    {
-      'name': 'አማርኛ',
-      'lable': 'ቋንቋ',
-    },
-    {
-      'name': 'Afaan Oromo',
-      'lable': 'Qooqa',
-    },
-    {
-      'name': 'Af-Somali',
-      'lable': 'Iuuqad',
-    }
-  ];
+  Widget popUpMenu() {
+    return Theme(
+      data: ThemeData(
+        splashColor: Colors.transparent,
+      ),
+      child: PopupMenuButton<String>(
+        padding: const EdgeInsets.all(4.0),
+        offset: const Offset(16.0, 48.0),
+        clipBehavior: Clip.none,
+        elevation: 16.0,
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(24.0),
+          bottomLeft: Radius.circular(24.0),
+          bottomRight: Radius.circular(24.0),
+        )),
+        surfaceTintColor: const Color(0xFFFFFFFF),
+        itemBuilder: (context) => [
+          PopupMenuItem<String>(
+            padding: const EdgeInsets.all(0.0),
+            value: 'Language',
+            child: SizedBox(
+              width: 160.0,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: ListTile(
+                  title: const Text('English'),
+                  trailing: (languageLabel == 'Language')
+                      ? Container(
+                          width: 16.0,
+                          height: 16.0,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.blue.shade900),
+                          ),
+                          child: Center(
+                            child: Container(
+                              width: 8.0,
+                              height: 8.0,
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.blue.shade900),
+                            ),
+                          ),
+                        )
+                      : null,
+                ),
+              ),
+            ),
+          ),
+          const PopupMenuDivider(height: 2.0),
+          PopupMenuItem<String>(
+            padding: const EdgeInsets.all(0.0),
+            value: 'ቋንቋ',
+            child: SizedBox(
+              width: 160.0,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: ListTile(
+                  title: const Text('አማርኛ'),
+                  trailing: (languageLabel == 'ቋንቋ')
+                      ? Container(
+                          width: 16.0,
+                          height: 16.0,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.blue.shade900),
+                          ),
+                          child: Center(
+                            child: Container(
+                              width: 8.0,
+                              height: 8.0,
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.blue.shade900),
+                            ),
+                          ),
+                        )
+                      : null,
+                ),
+              ),
+            ),
+          ),
+          const PopupMenuDivider(height: 2.0),
+          PopupMenuItem<String>(
+            padding: const EdgeInsets.all(0.0),
+            value: 'Qooqa',
+            child: SizedBox(
+              width: 160.0,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: ListTile(
+                  title: const Text('Afaan Oromo'),
+                  trailing: (languageLabel == 'Qooqa')
+                      ? Container(
+                          width: 16.0,
+                          height: 16.0,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.blue.shade900),
+                          ),
+                          child: Center(
+                            child: Container(
+                              width: 8.0,
+                              height: 8.0,
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.blue.shade900),
+                            ),
+                          ),
+                        )
+                      : null,
+                ),
+              ),
+            ),
+          ),
+          const PopupMenuDivider(height: 2.0),
+          PopupMenuItem<String>(
+            padding: const EdgeInsets.all(0.0),
+            value: 'Iuuqad',
+            child: SizedBox(
+              width: 160.0,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: ListTile(
+                  title: const Text('Af-Somali'),
+                  trailing: (languageLabel == 'Iuuqad')
+                      ? Container(
+                          width: 16.0,
+                          height: 16.0,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.blue.shade900),
+                          ),
+                          child: Center(
+                            child: Container(
+                              width: 8.0,
+                              height: 8.0,
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.blue.shade900),
+                            ),
+                          ),
+                        )
+                      : null,
+                ),
+              ),
+            ),
+          ),
+        ],
+        onSelected: (value) {
+          setState(() {
+            languageLabel = value;
+          });
+        },
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Text(languageLabel),
+            const Icon(Icons.arrow_drop_down),
+          ],
+        ),
+      ),
+    );
+  }
 }
 
 class FormContainer extends StatelessWidget {
@@ -212,7 +263,7 @@ class FormContainer extends StatelessWidget {
               lable: 'Username',
               hintText: 'Your username',
             ),
-            SizedBox(height: 8.0),
+            SizedBox(height: 16.0),
             InputField(
               kType: TextInputType.visiblePassword,
               lable: 'Password',
