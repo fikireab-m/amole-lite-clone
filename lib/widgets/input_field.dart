@@ -22,6 +22,7 @@ class _InputFieldState extends State<InputField> {
   late String lableText;
   late String hint;
   late TextInputType keyboardType;
+  bool isPassVisible = false;
   @override
   void initState() {
     keyboardType = widget.kType;
@@ -34,13 +35,13 @@ class _InputFieldState extends State<InputField> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 48.0,
+      height: 56.0,
       child: TextFormField(
-        obscureText: isPassword,
+        obscureText: isPassword && !isPassVisible,
         keyboardType: keyboardType,
         decoration: InputDecoration(
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8.0),
+            borderRadius: BorderRadius.circular(16.0),
           ),
           labelText: lableText,
           hintText: hint,
@@ -53,6 +54,24 @@ class _InputFieldState extends State<InputField> {
                   Icons.person_outline_rounded,
                   color: Color(0xFF003CFF),
                 ),
+          suffixIcon: isPassword
+              ? GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      isPassVisible = !isPassVisible;
+                    });
+                  },
+                  child: isPassVisible
+                      ? const Icon(
+                          Icons.visibility_off_outlined,
+                          color: Color(0xFF003CFF),
+                        )
+                      : const Icon(
+                          Icons.visibility_outlined,
+                          color: Color(0xFF003CFF),
+                        ),
+                )
+              : null,
         ),
       ),
     );

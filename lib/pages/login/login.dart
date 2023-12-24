@@ -70,23 +70,28 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(
                 width: constraint,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16.0,
-                    vertical: 8.0,
-                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Column(
                     children: [
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          TextButton(
-                            onPressed: () {},
-                            child: const Text('forget password?'),
-                          ),
-                        ],
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            GestureDetector(
+                              onTap: () {},
+                              child: const Text(
+                                'forget password?',
+                                style: TextStyle(
+                                  fontSize: 16.0,
+                                  color: Color(0xFF003CFF),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                      const SizedBox(height: 8.0),
                       ButCommon(
                         callback: () {},
                         command: 'Login',
@@ -96,6 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
+              const SizedBox(height: 16.0),
               SizedBox(width: constraint, child: const LoginBtnBar()),
             ],
           );
