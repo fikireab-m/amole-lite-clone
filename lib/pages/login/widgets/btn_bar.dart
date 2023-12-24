@@ -9,9 +9,9 @@ class LoginBtnBar extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Wrap(
-        alignment: WrapAlignment.center,
+        alignment: WrapAlignment.start,
         spacing: 8.0,
-        runAlignment: WrapAlignment.center,
+        runAlignment: WrapAlignment.start,
         runSpacing: 8.0,
         children: [
           BtnOutlined(callback: () {}, command: 'Open Amole Wallet'),

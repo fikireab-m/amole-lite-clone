@@ -21,18 +21,15 @@ class ButCommon extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           backgroundColor: color,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16.0),
+            borderRadius: BorderRadius.circular(24.0),
           ),
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(
-            command,
-            style: const TextStyle(
-              color: Color(0xFFFFFFFF),
-              fontSize: 18.0,
-              fontWeight: FontWeight.w500,
-            ),
+        child: Text(
+          command,
+          style: const TextStyle(
+            color: Color(0xFFFFFFFF),
+            fontSize: 18.0,
+            fontWeight: FontWeight.w500,
           ),
         ),
       ),

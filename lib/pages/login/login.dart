@@ -15,75 +15,91 @@ class _LoginPageState extends State<LoginPage> {
   String languageLabel = 'Language';
   @override
   Widget build(BuildContext context) {
-    final sc = MediaQuery.of(context).size;
     return Scaffold(
-      body: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(
-            width: sc.width,
-            decoration: const BoxDecoration(
-              border: Border(
-                bottom: BorderSide(
-                  color: Color(0xFF003CFF),
-                  width: 2.0,
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          final double constraint = constraints.maxWidth > 412
+              ? 412.0
+              : constraints.maxWidth.toDouble();
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: constraints.maxWidth,
+                decoration: const BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(
+                      color: Color(0xFF003CFF),
+                      width: 2.0,
+                    ),
+                  ),
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 24.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            Images.dashenBank,
+                            fit: BoxFit.scaleDown,
+                            height: 80.0,
+                          ),
+                          const SizedBox(width: 8.0),
+                          Image.asset(
+                            Images.amoleLogo,
+                            fit: BoxFit.scaleDown,
+                            width: 180,
+                            height: 80,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 16.0),
+                      child: popUpMenu(),
+                    )
+                  ],
                 ),
               ),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 24.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
+              const SizedBox(height: 16.0),
+              SizedBox(width: constraint, child: const FormContainer()),
+              SizedBox(
+                width: constraint,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16.0,
+                    vertical: 8.0,
+                  ),
+                  child: Column(
                     children: [
-                      Image.asset(
-                        Images.dashenBank,
-                        fit: BoxFit.scaleDown,
-                        height: 80.0,
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          TextButton(
+                            onPressed: () {},
+                            child: const Text('forget password?'),
+                          ),
+                        ],
                       ),
-                      const SizedBox(width: 8.0),
-                      Image.asset(
-                        Images.amoleLogo,
-                        fit: BoxFit.scaleDown,
-                        width: 180,
-                        height: 80,
+                      const SizedBox(height: 8.0),
+                      ButCommon(
+                        callback: () {},
+                        command: 'Login',
+                        color: const Color(0xFF003CFF),
                       ),
                     ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 16.0),
-                  child: popUpMenu(),
-                )
-              ],
-            ),
-          ),
-          const FormContainer(),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16.0,
-              vertical: 8.0,
-            ),
-            child: Column(
-              children: [
-                TextButton(
-                  onPressed: () {},
-                  child: const Text('forget password?'),
-                ),
-                const SizedBox(height: 8.0),
-                ButCommon(
-                  callback: () {},
-                  command: 'Login',
-                  color: const Color(0xFF003CFF),
-                ),
-              ],
-            ),
-          ),
-          const LoginBtnBar(),
-        ],
+              ),
+              SizedBox(width: constraint, child: const LoginBtnBar()),
+            ],
+          );
+        },
       ),
     );
   }
