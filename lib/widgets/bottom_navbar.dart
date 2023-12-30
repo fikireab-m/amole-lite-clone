@@ -1,3 +1,4 @@
+import 'package:amole_lite/config/path.dart';
 import 'package:flutter/material.dart';
 
 class AmoleBottomNavBar extends StatelessWidget {
@@ -5,6 +6,10 @@ class AmoleBottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(items: []);
+    return BottomNavigationBar(items: [
+      BottomNavigationBarItem(
+        icon: Image.asset(Images.graphIcon),
+      ),
+    ]);
   }
 }
