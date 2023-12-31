@@ -72,7 +72,12 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  SizedBox(width: constraint, child: const FormContainer()),
+                  SizedBox(
+                      width: constraint,
+                      child: const Padding(
+                        padding: EdgeInsets.only(top: 16.0),
+                        child: FormContainer(),
+                      )),
                   SizedBox(
                     width: constraint,
                     child: Padding(

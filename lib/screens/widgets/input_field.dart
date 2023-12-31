@@ -36,7 +36,7 @@ class _InputFieldState extends State<InputField> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 56.0,
+      height: 48.0,
       child: TextFormField(
         obscureText: isPassword && !isPassVisible,
         keyboardType: keyboardType,

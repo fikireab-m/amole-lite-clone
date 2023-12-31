@@ -15,7 +15,7 @@ class ButCommon extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 56.0,
+      height: 48.0,
       child: ElevatedButton(
         onPressed: callback,
         style: ElevatedButton.styleFrom(

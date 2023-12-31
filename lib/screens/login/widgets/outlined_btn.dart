@@ -13,13 +13,22 @@ class BtnOutlined extends StatefulWidget {
 class _BtnOutlinedState extends State<BtnOutlined> {
   @override
   Widget build(BuildContext context) {
-    return OutlinedButton(
-      onPressed: widget.callback,
-      style: OutlinedButton.styleFrom(
-        foregroundColor: ColorConst.primaryColor,
-      ),
-      child: Text(
-        widget.command,
+    final sc = MediaQuery.of(context).size;
+    return GestureDetector(
+      onTap: widget.callback,
+      child: Container(
+        width: sc.width / 2 - 32,
+        padding: const EdgeInsets.all(8.0),
+        decoration: BoxDecoration(
+          color: Colors.transparent,
+          border: Border.all(color: ColorConst.primaryColor, width: 1.0),
+          borderRadius: BorderRadius.circular(16.0),
+        ),
+        child: Center(
+          child: Text(
+            widget.command,
+          ),
+        ),
       ),
     );
   }
