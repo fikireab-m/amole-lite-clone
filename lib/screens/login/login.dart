@@ -3,6 +3,7 @@ import 'package:amole_lite/constants/const_colors.dart';
 import 'package:amole_lite/screens/login/widgets/btn_bar.dart';
 import 'package:amole_lite/screens/login/widgets/common_btn.dart';
 import 'package:amole_lite/screens/login/widgets/form.dart';
+import 'package:amole_lite/screens/widgets/cliper.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -67,56 +68,85 @@ class _LoginPageState extends State<LoginPage> {
           final double constraint = constraints.maxWidth > 412
               ? 412.0
               : constraints.maxWidth.toDouble();
-          return Center(
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  SizedBox(
-                      width: constraint,
-                      child: const Padding(
-                        padding: EdgeInsets.only(top: 16.0),
-                        child: FormContainer(),
-                      )),
-                  SizedBox(
-                    width: constraint,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(16.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.end,
+          return Stack(
+            children: [
+              ClipPath(
+                clipper: Customshape(),
+                child: Container(
+                  height: sc.height,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        ColorConst.lightBackground,
+                        ColorConst.primaryColor.withOpacity(0.2)
+                      ],
+                    ),
+                    image: const DecorationImage(
+                      image: AssetImage(Images.bgImg),
+                      fit: BoxFit.cover,
+                      opacity: 0.1,
+                    ),
+                  ),
+                ),
+              ),
+              Center(
+                child: SingleChildScrollView(
+                  child: Container(
+                    color: ColorConst.lightBackground,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        SizedBox(
+                            width: constraint,
+                            child: const Padding(
+                              padding: EdgeInsets.only(top: 16.0),
+                              child: FormContainer(),
+                            )),
+                        SizedBox(
+                          width: constraint,
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 16.0),
+                            child: Column(
                               children: [
-                                GestureDetector(
-                                  onTap: () {},
-                                  child: const Text(
-                                    'forget password?',
-                                    style: TextStyle(
-                                      fontSize: 16.0,
-                                      color: ColorConst.primaryColor,
-                                    ),
+                                Padding(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {},
+                                        child: const Text(
+                                          'forget password?',
+                                          style: TextStyle(
+                                            fontSize: 16.0,
+                                            color: ColorConst.primaryColor,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
+                                ),
+                                ButCommon(
+                                  callback: () {},
+                                  command: 'Login',
+                                  color: ColorConst.primaryColor,
                                 ),
                               ],
                             ),
                           ),
-                          ButCommon(
-                            callback: () {},
-                            command: 'Login',
-                            color: ColorConst.primaryColor,
-                          ),
-                        ],
-                      ),
+                        ),
+                        const SizedBox(height: 16.0),
+                        SizedBox(width: constraint, child: const LoginBtnBar()),
+                      ],
                     ),
                   ),
-                  const SizedBox(height: 16.0),
-                  SizedBox(width: constraint, child: const LoginBtnBar()),
-                ],
+                ),
               ),
-            ),
+            ],
           );
         },
       ),

@@ -44,6 +44,7 @@ class _InputFieldState extends State<InputField> {
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16.0),
           ),
+          hintStyle: const TextStyle(color: ColorConst.lighTextColor),
           labelText: lableText,
           hintText: hint,
           prefixIcon: isPassword
