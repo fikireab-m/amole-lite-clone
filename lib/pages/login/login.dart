@@ -2,6 +2,7 @@ import 'package:amole_lite/config/path.dart';
 import 'package:amole_lite/pages/login/widgets/btn_bar.dart';
 import 'package:amole_lite/pages/login/widgets/common_btn.dart';
 import 'package:amole_lite/pages/login/widgets/form.dart';
+import 'package:amole_lite/widgets/bottom_navbar.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -107,6 +108,7 @@ class _LoginPageState extends State<LoginPage> {
           );
         },
       ),
+      bottomNavigationBar: const AmoleBottomNavBar(),
     );
   }
 
