@@ -94,7 +94,10 @@ class _LoginPageState extends State<LoginPage> {
               Center(
                 child: SingleChildScrollView(
                   child: Container(
-                    color: ColorConst.lightBackground,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16.0),
+                      color: ColorConst.lightBackground,
+                    ),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -112,7 +115,10 @@ class _LoginPageState extends State<LoginPage> {
                             child: Column(
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(16.0),
+                                  padding: const EdgeInsets.only(
+                                    top: 8.0,
+                                    bottom: 16.0,
+                                  ),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.end,
@@ -122,7 +128,7 @@ class _LoginPageState extends State<LoginPage> {
                                         child: const Text(
                                           'forget password?',
                                           style: TextStyle(
-                                            fontSize: 16.0,
+                                            fontSize: 18.0,
                                             color: ColorConst.primaryColor,
                                           ),
                                         ),
