@@ -1,3 +1,4 @@
+import 'package:amole_lite/constants/const_colors.dart';
 import 'package:flutter/material.dart';
 
 class InputField extends StatefulWidget {
@@ -48,11 +49,11 @@ class _InputFieldState extends State<InputField> {
           prefixIcon: isPassword
               ? const Icon(
                   Icons.lock_outline_rounded,
-                  color: Color(0xFF004aad),
+                  color: ColorConst.primaryColor,
                 )
               : const Icon(
                   Icons.person_outline_rounded,
-                  color: Color(0xFF004aad),
+                  color: ColorConst.primaryColor,
                 ),
           suffixIcon: isPassword
               ? GestureDetector(
@@ -64,11 +65,11 @@ class _InputFieldState extends State<InputField> {
                   child: isPassVisible
                       ? const Icon(
                           Icons.visibility_off_outlined,
-                          color: Color(0xFF004aad),
+                          color: ColorConst.primaryColor,
                         )
                       : const Icon(
                           Icons.visibility_outlined,
-                          color: Color(0xFF004aad),
+                          color: ColorConst.primaryColor,
                         ),
                 )
               : null,

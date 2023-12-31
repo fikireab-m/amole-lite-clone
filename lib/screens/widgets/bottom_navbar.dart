@@ -8,11 +8,26 @@ class AmoleBottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomNavigationBar(items: [
       BottomNavigationBarItem(
-          icon: Image.asset(Images.graphIcon), label: 'Exchange'),
+          icon: Image.asset(
+            Images.graphIcon,
+            height: 32,
+            width: 32,
+          ),
+          label: 'Exchange'),
       BottomNavigationBarItem(
-          icon: Image.asset(Images.ussdIcon), label: 'USSD'),
+          icon: Image.asset(
+            Images.ussdIcon,
+            height: 32,
+            width: 32,
+          ),
+          label: 'USSD'),
       BottomNavigationBarItem(
-          icon: Image.asset(Images.moreIcon), label: 'More'),
+          icon: Image.asset(
+            Images.moreIcon,
+            height: 32,
+            width: 32,
+          ),
+          label: 'More'),
     ]);
   }
 }
