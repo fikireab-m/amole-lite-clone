@@ -3,7 +3,6 @@ import 'package:amole_lite/constants/const_colors.dart';
 import 'package:amole_lite/screens/login/widgets/btn_bar.dart';
 import 'package:amole_lite/screens/login/widgets/common_btn.dart';
 import 'package:amole_lite/screens/login/widgets/form.dart';
-import 'package:amole_lite/screens/widgets/bottom_navbar.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -15,112 +14,152 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   String languageLabel = 'Language';
+  int pageIndex = 0;
   @override
   Widget build(BuildContext context) {
+    final sc = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size(sc.width, 108.0),
+        child: Container(
+          decoration: const BoxDecoration(
+            border: Border(
+              bottom: BorderSide(
+                color: ColorConst.primaryColor,
+                width: 2.0,
+              ),
+            ),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 24.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      Images.dashenBank,
+                      fit: BoxFit.scaleDown,
+                      height: 80.0,
+                    ),
+                    const SizedBox(width: 8.0),
+                    Image.asset(
+                      Images.amoleLogo,
+                      fit: BoxFit.scaleDown,
+                      width: 180,
+                      height: 80,
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 16.0),
+                child: popUpMenu(),
+              )
+            ],
+          ),
+        ),
+      ),
       body: LayoutBuilder(
         builder: (context, constraints) {
           final double constraint = constraints.maxWidth > 412
               ? 412.0
               : constraints.maxWidth.toDouble();
-          return Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                width: constraints.maxWidth,
-                decoration: const BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(
-                      color: ColorConst.primaryColor,
-                      width: 2.0,
-                    ),
-                  ),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 24.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
+          return Center(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(width: constraint, child: const FormContainer()),
+                  SizedBox(
+                    width: constraint,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: Column(
                         children: [
-                          Image.asset(
-                            Images.dashenBank,
-                            fit: BoxFit.scaleDown,
-                            height: 80.0,
+                          Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                GestureDetector(
+                                  onTap: () {},
+                                  child: const Text(
+                                    'forget password?',
+                                    style: TextStyle(
+                                      fontSize: 16.0,
+                                      color: ColorConst.primaryColor,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                          const SizedBox(width: 8.0),
-                          Image.asset(
-                            Images.amoleLogo,
-                            fit: BoxFit.scaleDown,
-                            width: 180,
-                            height: 80,
+                          ButCommon(
+                            callback: () {},
+                            command: 'Login',
+                            color: ColorConst.primaryColor,
                           ),
                         ],
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 16.0),
-                      child: popUpMenu(),
-                    )
-                  ],
-                ),
-              ),
-              const SizedBox(height: 16.0),
-              SizedBox(width: constraint, child: const FormContainer()),
-              SizedBox(
-                width: constraint,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            GestureDetector(
-                              onTap: () {},
-                              child: const Text(
-                                'forget password?',
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                  color: ColorConst.primaryColor,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      ButCommon(
-                        callback: () {},
-                        command: 'Login',
-                        color: ColorConst.primaryColor,
-                      ),
-                    ],
                   ),
-                ),
+                  const SizedBox(height: 16.0),
+                  SizedBox(width: constraint, child: const LoginBtnBar()),
+                ],
               ),
-              const SizedBox(height: 16.0),
-              SizedBox(width: constraint, child: const LoginBtnBar()),
-            ],
+            ),
           );
         },
       ),
-      bottomNavigationBar: const AmoleBottomNavBar(),
+      bottomNavigationBar: Theme(
+        data: ThemeData(splashColor: Colors.transparent),
+        child: BottomNavigationBar(
+          selectedItemColor: ColorConst.primaryColor,
+          backgroundColor: ColorConst.lightBackground,
+          currentIndex: pageIndex,
+          onTap: (i) {
+            setState(() {
+              pageIndex = i;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+                icon: Image.asset(
+                  Images.graphIcon,
+                  height: 32,
+                  width: 32,
+                ),
+                label: 'Exchange'),
+            BottomNavigationBarItem(
+                icon: Image.asset(
+                  Images.ussdIcon,
+                  height: 32,
+                  width: 32,
+                ),
+                label: 'USSD'),
+            BottomNavigationBarItem(
+                icon: Image.asset(
+                  Images.moreIcon,
+                  height: 32,
+                  width: 32,
+                ),
+                label: 'More'),
+          ],
+        ),
+      ),
     );
   }
 
   Widget popUpMenu() {
     return Theme(
-      data: ThemeData(
-        splashColor: Colors.transparent,
-      ),
+      data: ThemeData(splashColor: Colors.transparent),
       child: PopupMenuButton<String>(
         padding: const EdgeInsets.all(4.0),
-        offset: const Offset(16.0, 48.0),
+        offset: const Offset(16.0, 24.0),
         clipBehavior: Clip.none,
         elevation: 16.0,
         shape: const RoundedRectangleBorder(

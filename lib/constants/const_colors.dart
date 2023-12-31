@@ -7,4 +7,5 @@ class ColorConst {
   static const grayTextColor = Color(0xFF3D3D3D);
   static const lighTextColor = Color(0xFF8D8D8D);
   static const whiteTextColor = Color(0xFFF0F0F0);
+  static const lightBackground = Color(0xFFFFFFFF);
 }
