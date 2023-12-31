@@ -1,4 +1,4 @@
-import 'package:amole_lite/pages/login/login.dart';
+import 'package:amole_lite/screens/login/login.dart';
 import 'package:flutter/material.dart';
 
 void main() {

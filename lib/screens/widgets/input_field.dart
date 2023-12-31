@@ -48,11 +48,11 @@ class _InputFieldState extends State<InputField> {
           prefixIcon: isPassword
               ? const Icon(
                   Icons.lock_outline_rounded,
-                  color: Color(0xFF003CFF),
+                  color: Color(0xFF004aad),
                 )
               : const Icon(
                   Icons.person_outline_rounded,
-                  color: Color(0xFF003CFF),
+                  color: Color(0xFF004aad),
                 ),
           suffixIcon: isPassword
               ? GestureDetector(
@@ -64,11 +64,11 @@ class _InputFieldState extends State<InputField> {
                   child: isPassVisible
                       ? const Icon(
                           Icons.visibility_off_outlined,
-                          color: Color(0xFF003CFF),
+                          color: Color(0xFF004aad),
                         )
                       : const Icon(
                           Icons.visibility_outlined,
-                          color: Color(0xFF003CFF),
+                          color: Color(0xFF004aad),
                         ),
                 )
               : null,

@@ -1,8 +1,9 @@
 import 'package:amole_lite/config/path.dart';
-import 'package:amole_lite/pages/login/widgets/btn_bar.dart';
-import 'package:amole_lite/pages/login/widgets/common_btn.dart';
-import 'package:amole_lite/pages/login/widgets/form.dart';
-import 'package:amole_lite/widgets/bottom_navbar.dart';
+import 'package:amole_lite/constants/const_colors.dart';
+import 'package:amole_lite/screens/login/widgets/btn_bar.dart';
+import 'package:amole_lite/screens/login/widgets/common_btn.dart';
+import 'package:amole_lite/screens/login/widgets/form.dart';
+import 'package:amole_lite/screens/widgets/bottom_navbar.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -30,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
                 decoration: const BoxDecoration(
                   border: Border(
                     bottom: BorderSide(
-                      color: Color(0xFF003CFF),
+                      color: ColorConst.primaryColor,
                       width: 2.0,
                     ),
                   ),
@@ -86,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                                 'forget password?',
                                 style: TextStyle(
                                   fontSize: 16.0,
-                                  color: Color(0xFF003CFF),
+                                  color: ColorConst.primaryColor,
                                 ),
                               ),
                             ),
@@ -96,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
                       ButCommon(
                         callback: () {},
                         command: 'Login',
-                        color: const Color(0xFF003CFF),
+                        color: ColorConst.primaryColor,
                       ),
                     ],
                   ),

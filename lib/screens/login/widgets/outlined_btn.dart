@@ -1,3 +1,4 @@
+import 'package:amole_lite/constants/const_colors.dart';
 import 'package:flutter/material.dart';
 
 class BtnOutlined extends StatefulWidget {
@@ -15,7 +16,7 @@ class _BtnOutlinedState extends State<BtnOutlined> {
     return OutlinedButton(
       onPressed: widget.callback,
       style: OutlinedButton.styleFrom(
-        foregroundColor: const Color(0xFF003CFF),
+        foregroundColor: ColorConst.primaryColor,
       ),
       child: Text(
         widget.command,
