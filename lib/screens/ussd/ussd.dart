@@ -1,6 +1,6 @@
 import 'package:amole_lite/constants/const_colors.dart';
-import 'package:amole_lite/screens/exchange/widgets/exchange_row.dart';
 import 'package:amole_lite/screens/login/widgets/common_btn.dart';
+import 'package:amole_lite/screens/ussd/widgets/ussd_tile.dart';
 import 'package:amole_lite/screens/widgets/appbar.dart';
 import 'package:flutter/material.dart';
 
@@ -90,19 +90,7 @@ class USSD extends StatelessWidget {
                                       )
                                     ],
                                   )
-                                : const ListTile(
-                                    leading: Icon(Icons.currency_exchange),
-                                    title: Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 16.0),
-                                      child: Text('Transfer'),
-                                    ),
-                                    tileColor: ColorConst.lightBackground,
-                                    trailing: Icon(
-                                      Icons.arrow_forward_ios,
-                                      size: 14.0,
-                                    ),
-                                  );
+                                : const UssdTile();
                           },
                           itemCount: 10,
                           separatorBuilder: (BuildContext context, i) {
