@@ -78,6 +78,9 @@ class USSD extends StatelessWidget {
                                           callback: () {},
                                           command: 'Enter USSD mode',
                                           color: ColorConst.primaryColor,
+                                          size: 56.0,
+                                          fSize: 18.0,
+                                          radius: 24.0,
                                         ),
                                       ),
                                       Container(
