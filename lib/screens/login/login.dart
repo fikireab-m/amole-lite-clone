@@ -15,7 +15,6 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   String languageLabel = 'Language';
-  int pageIndex = 0;
   @override
   Widget build(BuildContext context) {
     final sc = MediaQuery.of(context).size;
@@ -155,42 +154,6 @@ class _LoginPageState extends State<LoginPage> {
             ],
           );
         },
-      ),
-      bottomNavigationBar: Theme(
-        data: ThemeData(splashColor: Colors.transparent),
-        child: BottomNavigationBar(
-          selectedItemColor: ColorConst.primaryColor,
-          backgroundColor: ColorConst.lightBackground,
-          currentIndex: pageIndex,
-          onTap: (i) {
-            setState(() {
-              pageIndex = i;
-            });
-          },
-          items: [
-            BottomNavigationBarItem(
-                icon: Image.asset(
-                  Images.graphIcon,
-                  height: 32,
-                  width: 32,
-                ),
-                label: 'Exchange'),
-            BottomNavigationBarItem(
-                icon: Image.asset(
-                  Images.ussdIcon,
-                  height: 32,
-                  width: 32,
-                ),
-                label: 'USSD'),
-            BottomNavigationBarItem(
-                icon: Image.asset(
-                  Images.moreIcon,
-                  height: 32,
-                  width: 32,
-                ),
-                label: 'More'),
-          ],
-        ),
       ),
     );
   }

@@ -2,8 +2,7 @@ import 'package:amole_lite/config/path.dart';
 import 'package:flutter/material.dart';
 
 class AmoleAppBar extends StatelessWidget {
-  final List<Widget> appbarActions;
-  const AmoleAppBar({super.key, required this.appbarActions});
+  const AmoleAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +24,6 @@ class AmoleAppBar extends StatelessWidget {
           ),
         ],
       ),
-      actions: appbarActions,
     );
   }
 }
