@@ -1,7 +1,8 @@
 import 'package:amole_lite/config/path.dart';
 import 'package:amole_lite/constants/const_colors.dart';
 import 'package:amole_lite/screens/exchange/exchange_rate.dart';
-import 'package:amole_lite/screens/login/login.dart';
+import 'package:amole_lite/screens/more/more_options.dart';
+import 'package:amole_lite/screens/ussd/ussd.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,16 +16,8 @@ class _HomePageState extends State<HomePage> {
   int pageIndex = 0;
   final List<Widget> pages = [
     const ExchageRate(),
-    const Scaffold(
-      body: Center(
-        child: Text("data"),
-      ),
-    ),
-    const Scaffold(
-      body: Center(
-        child: Text("data"),
-      ),
-    )
+    const USSD(),
+    const MoreOptions(),
   ];
   @override
   Widget build(BuildContext context) {
