@@ -1,4 +1,4 @@
-import 'package:amole_lite/screens/login/widgets/outlined_btn.dart';
+import 'package:amole_lite/screens/widgets/outlined_btn.dart';
 import 'package:flutter/material.dart';
 
 class LoginBtnBar extends StatelessWidget {

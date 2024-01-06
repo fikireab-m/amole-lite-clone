@@ -1,9 +1,9 @@
 import 'package:amole_lite/config/path.dart';
 import 'package:amole_lite/constants/const_colors.dart';
 import 'package:amole_lite/screens/login/widgets/btn_bar.dart';
-import 'package:amole_lite/screens/login/widgets/common_btn.dart';
 import 'package:amole_lite/screens/login/widgets/form.dart';
 import 'package:amole_lite/screens/widgets/cliper.dart';
+import 'package:amole_lite/screens/widgets/common_btn.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {

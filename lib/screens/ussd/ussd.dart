@@ -1,7 +1,7 @@
 import 'package:amole_lite/constants/const_colors.dart';
-import 'package:amole_lite/screens/login/widgets/common_btn.dart';
 import 'package:amole_lite/screens/ussd/widgets/ussd_tile.dart';
 import 'package:amole_lite/screens/widgets/appbar.dart';
+import 'package:amole_lite/screens/widgets/common_btn.dart';
 import 'package:flutter/material.dart';
 
 class USSD extends StatelessWidget {
