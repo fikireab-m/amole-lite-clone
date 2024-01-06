@@ -1,4 +1,5 @@
 import 'package:amole_lite/config/path.dart';
+import 'package:amole_lite/constants/const_colors.dart';
 import 'package:flutter/material.dart';
 
 class AmoleAppBar extends StatelessWidget {
@@ -7,6 +8,7 @@ class AmoleAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: ColorConst.lightBackground,
       title: Row(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.start,
