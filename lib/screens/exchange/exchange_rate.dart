@@ -40,9 +40,11 @@ class ExchageRate extends StatelessWidget {
                                               CrossAxisAlignment.start,
                                           children: [
                                             const Text(
-                                                'Ethiopian Birr Exchange Rates'),
+                                              'Ethiopian Birr Exchange Rates',
+                                            ),
                                             Text(
-                                                'Rates Updated ${DateTime.now()}')
+                                              'Rates Updated ${DateTime.now()}',
+                                            )
                                           ],
                                         ),
                                       ),
