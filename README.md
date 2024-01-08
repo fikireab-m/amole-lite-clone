@@ -1,16 +1,24 @@
-# amole_lite
+# Amole Lite clone
 
-A new Flutter project.
+This is a clonned UI of Amole Lite (Dashen Banks's mobile banking client applicatation)
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+To get started clone or fork this repo,
+Open your terminal in the folder and run
 
-A few resources to get you started if this is your first Flutter project:
+```
+flutter pub get
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Once the dependencies are installed, run the app in debug mode
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
+flutter run 
+```
+
+To run it on a specific device
+
+```
+flutter run -d <device_id>
+```
