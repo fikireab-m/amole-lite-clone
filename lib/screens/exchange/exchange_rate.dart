@@ -10,6 +10,7 @@ class ExchageRate extends StatelessWidget {
   Widget build(BuildContext context) {
     final sc = MediaQuery.of(context).size;
     return PageLayout(
+      appbarTitle: "Exchange Rates",
       child: SizedBox(
         height: sc.height - 160,
         child: Padding(

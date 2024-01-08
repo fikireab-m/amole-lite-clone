@@ -4,41 +4,40 @@ import 'package:flutter/material.dart';
 
 class PageLayout extends StatelessWidget {
   final Widget child;
-  const PageLayout({super.key, required this.child});
+  final String appbarTitle;
+  const PageLayout({super.key, required this.child, required this.appbarTitle});
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Stack(
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16.0, 116.0, 16.0, 0.0),
-              child: SingleChildScrollView(
-                child: child,
+        body: CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar(
+              snap: true,
+              pinned: true,
+              floating: true,
+              expandedHeight: 240,
+              flexibleSpace: FlexibleSpaceBar(
+                title: Text(
+                  appbarTitle,
+                  style: const TextStyle(
+                    color: ColorConst.darkTextColor,
+                    fontSize: 16.0,
+                  ),
+                ),
+                background: const AmoleAppBar(),
+              ),
+              leading: IconButton(
+                icon: const Icon(Icons.arrow_back_ios),
+                tooltip: 'go back',
+                onPressed: () => Navigator.pop(context),
               ),
             ),
-            Column(
-              children: [
-                const SizedBox(height: 64.0, child: AmoleAppBar()),
-                const Divider(
-                  height: 2,
-                  thickness: 2.0,
-                  color: ColorConst.primaryColor,
-                  indent: 0,
-                ),
-                AppBar(
-                  backgroundColor: ColorConst.lightBackground,
-                  surfaceTintColor: ColorConst.lightBackground,
-                  shadowColor: ColorConst.lightBlueGrayBackground,
-                  elevation: 2.0,
-                  leading: GestureDetector(
-                    onTap: () {},
-                    child: const Icon(Icons.arrow_back_ios),
-                  ),
-                  title: const Text('Exchange Rates'),
-                ),
-              ],
+            SliverFillRemaining(
+              child: Center(
+                child: child,
+              ),
             )
           ],
         ),
