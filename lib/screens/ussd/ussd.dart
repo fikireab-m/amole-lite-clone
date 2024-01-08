@@ -12,9 +12,9 @@ class USSD extends StatelessWidget {
     final sc = MediaQuery.of(context).size;
     return PageLayout(
       child: SizedBox(
-        height: sc.height - 200,
+        height: sc.height - 160,
         child: Padding(
-          padding: const EdgeInsets.only(top: 16.0, bottom: 4.0),
+          padding: const EdgeInsets.only(top: 16.0),
           child: ListView.separated(
             scrollDirection: Axis.vertical,
             itemBuilder: (context, i) {
