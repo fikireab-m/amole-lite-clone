@@ -13,7 +13,10 @@ class ExchangeRow extends StatelessWidget {
         color: ColorConst.darkTextColor,
       ),
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        padding: const EdgeInsets.symmetric(
+          vertical: 8.0,
+          horizontal: 4.0,
+        ),
         decoration: const BoxDecoration(
           color: ColorConst.lightBackground,
           border: Border(

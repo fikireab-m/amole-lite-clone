@@ -2,7 +2,6 @@ import 'package:amole_lite/constants/const_colors.dart';
 import 'package:amole_lite/screens/Layout/layout.dart';
 import 'package:amole_lite/screens/ussd/widgets/page_info.dart';
 import 'package:amole_lite/screens/ussd/widgets/ussd_tile.dart';
-import 'package:amole_lite/screens/widgets/common_btn.dart';
 import 'package:flutter/material.dart';
 
 class USSD extends StatelessWidget {
@@ -15,6 +14,7 @@ class USSD extends StatelessWidget {
       header: UssdPageInfo(),
       content: UssdTile(),
       count: 10,
+      pageColor: ColorConst.lightGrayBackground,
     );
   }
 }

@@ -7,18 +7,21 @@ class PageLayout extends StatelessWidget {
   final Widget content;
   final String appbarTitle;
   final int? count;
-  const PageLayout(
-      {super.key,
-      required this.header,
-      required this.appbarTitle,
-      required this.content,
-      this.count = 10});
+  final Color? pageColor;
+  const PageLayout({
+    super.key,
+    required this.header,
+    required this.appbarTitle,
+    required this.content,
+    this.count = 10,
+    this.pageColor = ColorConst.lightBackground,
+  });
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: ColorConst.lightGrayBackground,
+        backgroundColor: pageColor,
         body: CustomScrollView(
           slivers: <Widget>[
             SliverAppBar(
