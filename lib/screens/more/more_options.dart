@@ -8,14 +8,36 @@ class MoreOptions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const PageLayout(
-      appbarTitle: "More functions",
-      content: MoreOptionTile(
-        icon: Icons.security,
-        title: "Privacy and Security",
+    return Scaffold(
+      body: Stack(
+        children: [
+          const PageLayout(
+            appbarTitle: "More functions",
+            content: MoreOptionTile(
+              icon: Icons.security,
+              title: "Privacy and Security",
+            ),
+            count: 5,
+            pageColor: ColorConst.lightGrayBackground,
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              decoration:
+                  const BoxDecoration(color: ColorConst.lightBackground),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  const Text("Having difficulties?"),
+                  TextButton(
+                      onPressed: () {}, child: const Text(" Contact Us")),
+                ],
+              ),
+            ),
+          )
+        ],
       ),
-      count: 5,
-      pageColor: ColorConst.lightGrayBackground,
     );
   }
 }
