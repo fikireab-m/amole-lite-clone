@@ -23,15 +23,18 @@ class MoreOptions extends StatelessWidget {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              decoration:
-                  const BoxDecoration(color: ColorConst.lightBackground),
+              decoration: const BoxDecoration(
+                color: ColorConst.lightBackground,
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   const Text("Having difficulties?"),
                   TextButton(
-                      onPressed: () {}, child: const Text(" Contact Us")),
+                    onPressed: () {},
+                    child: const Text(" Contact Us"),
+                  )
                 ],
               ),
             ),
