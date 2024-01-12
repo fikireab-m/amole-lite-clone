@@ -3,14 +3,22 @@ import 'package:amole_lite/screens/widgets/appbar.dart';
 import 'package:flutter/material.dart';
 
 class PageLayout extends StatelessWidget {
-  final Widget child;
+  final Widget header;
+  final Widget content;
   final String appbarTitle;
-  const PageLayout({super.key, required this.child, required this.appbarTitle});
+  final int? count;
+  const PageLayout(
+      {super.key,
+      required this.header,
+      required this.appbarTitle,
+      required this.content,
+      this.count = 10});
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: ColorConst.lightGrayBackground,
         body: CustomScrollView(
           slivers: <Widget>[
             SliverAppBar(
@@ -34,11 +42,17 @@ class PageLayout extends StatelessWidget {
                 onPressed: () => Navigator.pop(context),
               ),
             ),
-            SliverFillRemaining(
-              child: Center(
-                child: child,
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, i) => Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16.0,
+                  ),
+                  child: i == 0 ? header : content,
+                ),
+                childCount: count,
               ),
-            )
+            ),
           ],
         ),
       ),

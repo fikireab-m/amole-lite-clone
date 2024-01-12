@@ -15,6 +15,7 @@ class ExchangeRow extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 8.0),
         decoration: const BoxDecoration(
+          color: ColorConst.lightBackground,
           border: Border(
             bottom:
                 BorderSide(width: 1.0, color: ColorConst.lightGrayBackground),
