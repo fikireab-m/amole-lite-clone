@@ -3,14 +3,14 @@ import 'package:amole_lite/screens/widgets/appbar.dart';
 import 'package:flutter/material.dart';
 
 class PageLayout extends StatelessWidget {
-  final Widget header;
+  final Widget? header;
   final Widget content;
   final String appbarTitle;
   final int? count;
   final Color? pageColor;
   const PageLayout({
     super.key,
-    required this.header,
+    this.header,
     required this.appbarTitle,
     required this.content,
     this.count = 10,

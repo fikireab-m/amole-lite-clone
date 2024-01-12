@@ -1,6 +1,7 @@
 import 'package:amole_lite/screens/exchange/exchange_rate.dart';
 import 'package:amole_lite/screens/home/home.dart';
 import 'package:amole_lite/screens/login/login.dart';
+import 'package:amole_lite/screens/more/more_options.dart';
 import 'package:amole_lite/screens/ussd/ussd.dart';
 import 'package:flutter/material.dart';
 
@@ -25,11 +26,7 @@ class MyApp extends StatelessWidget {
           '/login': (context) => const LoginPage(),
           '/exchange': (context) => const ExchageRate(),
           '/ussd': (context) => const USSD(),
-          '/more': (context) => const Scaffold(
-                body: Center(
-                  child: Text('More options'),
-                ),
-              ),
+          '/more': (context) => const MoreOptions(),
         });
   }
 }
